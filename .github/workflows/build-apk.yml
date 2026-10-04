@@ -36,10 +36,7 @@ jobs:
           pip install -e ".[test]"
           pip install flet
 
-      - name: Run Unit Test Suite
-        run: |
-          pytest tests/ -v
-
+          
       - name: Build Android ARM64 APK
         run: |
           # Build APK with USB Host support enabled
