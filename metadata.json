@@ -1,0 +1,6 @@
+{
+  "name": "qualcomm-edl-android",
+  "description": "Qualcomm EDL 9008 Android suite using Python 3, Flet, USB Host UsbManager, Sahara, Firehose, GPT partition viewer, streamed backup and image writer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

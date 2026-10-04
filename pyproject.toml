@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qualcomm-edl-android"
+version = "1.0.0"
+description = "Qualcomm EDL 9008 tool for Android with USB Host OTG, Sahara, Firehose, and GPT support"
+authors = [
+    { name = "Qualcomm EDL Android Contributors" }
+]
+readme = "README.md"
+license = { text = "GPL-3.0-or-later" }
+requires-python = ">=3.9"
+dependencies = [
+    "flet>=0.23.0",
+    "pycryptodome>=3.20.0",
+    "pyusb>=1.2.1",
+    "pyserial>=3.5",
+]
+
+[project.optional-dependencies]
+android = [
+    "pyjnius>=1.6.0",
+]
+test = [
+    "pytest>=7.0.0",
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
+python_files = ["test_*.py"]
+pythonpath = ["."]
+
+[tool.flet]
+app_name = "Qualcomm EDL Tool"
+description = "Qualcomm Emergency Download Mode (EDL 9008) suite for Android"
+
+[tool.flet.android]
+package_name = "com.qualcomm.edl.android"
+version = "1.0.0"
+build_number = 1
+
+# Hardware features: USB Host OTG declared
+features = [
+    { name = "android.hardware.usb.host", required = true }
+]
+
+permissions = [
+    "android.permission.USB_PERMISSION",
+    "android.permission.READ_EXTERNAL_STORAGE",
+    "android.permission.WRITE_EXTERNAL_STORAGE"
+]
